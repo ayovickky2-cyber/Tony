@@ -1,0 +1,16 @@
+const accountSchema = new mongoose.Schema({
+  game: { type: String, enum: ['CODM', 'Free Fire'], required: true },
+  title: String,
+  price: Number,
+  accountDetails: {
+    level: Number,
+    rank: String,
+    skinsCount: Number,
+    isLinked: Boolean
+  },
+  credentials: { 
+    username: { type: String, select: false }, // Only show after purchase
+    password: { type: String, select: false } 
+  },
+  status: { type: String, default: 'available' }
+});
